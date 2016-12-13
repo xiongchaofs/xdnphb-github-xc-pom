@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.2.RELEASE</version>
+    </parent>
+    
+    <groupId>com.fantasi</groupId>
+    <artifactId>xdnphb-xc-pom</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.springframework.version>4.2.4.RELEASE</org.springframework.version>
+
+		<base.ip>171.92.208.92</base.ip>
+		<gitHub.url>https://github.com/xiongchaofs</gitHub.url>
+		<nexus.url>http://${base.ip}:23230/nexus</nexus.url>
+		
+		<log4j.version>1.2.16</log4j.version>
+		<junit.version>4.12</junit.version>
+		<java.version>1.8</java.version>
+		<common-db.version>0.0.5-SNAPSHOT</common-db.version>
+		<mysql.version>5.1.17</mysql.version>
+	</properties>
+	
+	<distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>nexus Maven 2 Repository</name>
+            <url>${nexus.url}/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>nexus Maven 2 Repository (Snapshots and Test Builds)</name>
+            <url>${nexus.url}/content/repositories/snapshots</url>
+        </snapshotRepository>
+	</distributionManagement>
+	
+	<dependencies>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+	          <artifactId>maven-resources-plugin</artifactId>
+	          <configuration>
+	            <useDefaultDelimiters>true</useDefaultDelimiters>
+	          </configuration>
+	        </plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>  
+					<groupId>org.apache.maven.plugins</groupId>  
+					<artifactId>maven-surefire-plugin</artifactId>  
+					<version>2.16</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+					<configuration>
+						<!-- <tagBase>${maven.release.tagBase}</tagBase> -->
+						<checkModificationExcludes>
+							<checkModificationExclude>**/.classpath</checkModificationExclude>
+			      			<checkModificationExclude>**/.project</checkModificationExclude>
+						</checkModificationExcludes>
+						 <releaseProfiles>release</releaseProfiles>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources> 
+	</build>
+	
+</project>
