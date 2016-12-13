@@ -8,7 +8,7 @@
     
     <groupId>com.fantasi</groupId>
     <artifactId>xdnphb-github-xc-pom</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4</version>
 	<packaging>pom</packaging>
 	
     <properties>
