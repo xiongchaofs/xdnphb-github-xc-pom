@@ -7,7 +7,7 @@
     </parent>
     
     <groupId>com.fantasi</groupId>
-    <artifactId>xdnphb-xc-pom</artifactId>
+    <artifactId>xdnphb-github-xc-pom</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
